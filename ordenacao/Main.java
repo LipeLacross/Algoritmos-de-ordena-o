@@ -29,7 +29,7 @@ public class Main {
             runSet(new SelectionSort(),ns10, myWriter);
             runSet(new SelectionSort(),ns100, myWriter);
             runSet(new SelectionSort(),ns1000, myWriter);
-            System. gc();
+            System.gc();
 
             myWriter.write("==============="+ System.lineSeparator());
             runSet(new InsertionSort(),ns10, myWriter);
