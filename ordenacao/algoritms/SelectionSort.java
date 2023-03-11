@@ -2,22 +2,26 @@ package ordenacao.algoritms;
 
 import ordenacao.Sorter;
 
-public class SelectionSort implements Sorter{
+public class SelectionSort implements Sorter {
 
     @Override
     public int[] sort(int[] elements) {
-        int [] sorted = elements.clone();
-        for (int i = 0; i < sorted.length; i++) {
-            int min = i;
+        int[] sorted = elements.clone();
+
+        for (int i = 0; i < sorted.length - 1; i++) {
+            int minIndex = i;
             for (int j = i + 1; j < sorted.length; j++) {
-                if (sorted[j] < sorted[min]) {
-                    min = j;
+                if (sorted[j] < sorted[minIndex]) {
+                    minIndex = j;
                 }
             }
-            int temp = sorted[i];
-            sorted[i] = sorted[min];
-            sorted[min] = temp;
+            if (minIndex != i) {
+                int temp = sorted[i];
+                sorted[i] = sorted[minIndex];
+                sorted[minIndex] = temp;
+            }
         }
+
         return sorted;
     }
 
@@ -25,13 +29,4 @@ public class SelectionSort implements Sorter{
     public String getName() {
         return "SelectionSort";
     }
-    /* 
-    public static void main(String[] args) {
-        SelectionSort selectionSort = new SelectionSort();
-        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int[] array2 = selectionSort.sort(array);
-        for (int i : array2) {
-            System.out.println(i);
-        }
-    }*/
 }
